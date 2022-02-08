@@ -12,22 +12,10 @@
 
             document.getElementById('exibir-execucao').innerHTML += '----------- Início do jogo -----------';
             document.getElementById('exibir-execucao').innerHTML += '<pre>' + campoMinado.Tabuleiro() + '</pre>';
-            document.getElementById('exibir-execucao').innerHTML += '<pre>' + campoMinado.JogoStatus() + '</pre>';
             // Realize sua codificação a partir deste ponto, boa sorte!
+            document.getElementById('exibir-execucao').innerHTML += '<pre>' + campoMinado.JogoStatus() + '</pre>';
             document.getElementById('exibir-execucao').innerHTML += '--------------------------------------';
-            var escolhas = [];
-            var minas=[];
-            for (var i = 0; i < tabuleiro.length; i++) {
-                for (var j = 0; j < tabuleiro[i].length; j++) {
-                    if (tabuleiro[i][j]>=0) {
-                        escolhas[escolhas.length]=[[i+1],[j+1]];
 
-                    }
-                    else {
-                        minas[minas.length]=[[i+1],[j+1]];
-                    }
-                }
-            }
 
         </script>
     </body>
