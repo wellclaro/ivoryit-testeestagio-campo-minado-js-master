@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
     <head>
         <title></title>
         <script src="js/campo-minado.js"></script>
@@ -15,6 +15,23 @@
             // Realize sua codificação a partir deste ponto, boa sorte!
             document.getElementById('exibir-execucao').innerHTML += '<pre>' + campoMinado.JogoStatus() + '</pre>';
             document.getElementById('exibir-execucao').innerHTML += '--------------------------------------';
+            var aux=0
+            while(aux==0){
+                var escolha=campoMinado.Tabuleiro();
+                escolha=escolha.replace(/(\r\n|\n|\r)/gm,"");
+                var tabuleiro=[];
+                var tab_temp = [];
+                var index=0;
+                for(var i=0; i<9;i++){
+                    for(var j=0; j<9;j++){
+                        tab_temp[j]=escolha[index];
+                        index++;
+                    }
+                    tabuleiro[i]=tab_temp;
+                    tab_temp=[];
+                }
+                aux=1;
+            }
 
 
         </script>
