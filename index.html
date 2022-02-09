@@ -15,21 +15,49 @@
             // Realize sua codificação a partir deste ponto, boa sorte!
             document.getElementById('exibir-execucao').innerHTML += '<pre>' + campoMinado.JogoStatus() + '</pre>';
             document.getElementById('exibir-execucao').innerHTML += '--------------------------------------';
-            var aux=0
-            while(aux==0){
+            let aux=0
+            let ler_linha=2;
+            while(aux===0){
                 var escolha=campoMinado.Tabuleiro();
                 escolha=escolha.replace(/(\r\n|\n|\r)/gm,"");
                 var tabuleiro=[];
                 var tab_temp = [];
+                var opcoes=[];
+                var minas=[];
                 var index=0;
-                for(var i=0; i<9;i++){
-                    for(var j=0; j<9;j++){
+                for(let i=0; i<9;i++){
+                    for(let j=0; j<9;j++){
                         tab_temp[j]=escolha[index];
                         index++;
                     }
                     tabuleiro[i]=tab_temp;
                     tab_temp=[];
                 }
+                var minas_index = 0;
+                var opcoes_index=0;
+                for(var aux2=0;aux2<9;aux2++){
+                    for (var x=-1; x<=1;x++){
+                        var count=0;
+                        for(var y=-1;y<=1;y++){
+                            //document.writeln([ler_linha+x]+x"|"+[aux2+y]+"<br>");
+                            if((((ler_linha+x)>=0)&&((ler_linha+x)<9))&&(((aux2+y)>=0)&&((aux2+y)<9))) {
+                                if (tabuleiro[ler_linha + x][aux2 + y] === "-") {
+                                    minas[minas_index] = [[(ler_linha + x) + 1], [(aux2 + y) + 1]];
+                                    count++;
+                                    opcoes[opcoes_index]= [[[(ler_linha + x) + 1], [(aux2 + y) + 1]],count];
+                                    opcoes_index++;
+                                    minas_index++;
+                                }
+                            }
+                        }
+                        count=0;
+                    }
+                }
+                for (var i=0;i<opcoes_index;i++){
+                    document.writeln(opcoes[i]+"<br>");
+                }
+
+                ler_linha++;
                 aux=1;
             }
 
